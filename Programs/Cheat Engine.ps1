@@ -15,7 +15,7 @@ $exe_path = "$download_folder/CheatEngine70.exe"
 download $url $exe_path
 
 # TODO: Detection of previous installations
-& "$exe_path" /SILENT /DIR="C:\Programs\Cheat Engine"
+& "$exe_path" /SILENT /DIR="$(install_path $PSCommandPath)"
 
 # Disable updates to avoid adware
 reg add "HKCU\Software\Cheat Engine\VersionCheck" /v "CheckOnLaunch" /t REG_SZ /d "0" /f
