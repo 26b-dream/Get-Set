@@ -3,5 +3,5 @@
 param ($force)
 . "$((get-item $PSScriptRoot).parent.FullName)\lib\load.ps1"
 
-winget_install_v2 $PSCommandPath "Google.$name" -force $force
+winget_install $PSCommandPath "Google.$name" -force $force
 delete_shortcut "Google Chrome"

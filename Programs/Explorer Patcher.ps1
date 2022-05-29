@@ -11,4 +11,4 @@ param ($force)
 reg import "files\Explorer Patcher\config.reg"
 
 # TODO: Look into changing installation directory
-winget_install_v2 $PSCommandPath "valinet.ExplorerPatcher" -force $force
+winget_install $PSCommandPath "valinet.ExplorerPatcher" -force $force

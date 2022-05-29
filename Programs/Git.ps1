@@ -10,4 +10,4 @@ param ($force)
 #   /SILENT - install silently 
 $params = "/LOADINF=files\$name\install.inf /SILENT"
 
-winget_install_v2 $PSCommandPath -params $params -force $force
+winget_install $PSCommandPath -params $params -force $force

@@ -3,5 +3,5 @@
 param ($force)
 . "$((get-item $PSScriptRoot).parent.FullName)\lib\load.ps1"
 
-winget_install_v2 "GitHub.GitHubDesktop" $PSCommandPath -force $force
+winget_install "GitHub.GitHubDesktop" $PSCommandPath -force $force
 delete_shortcut "GitHub Desktop"

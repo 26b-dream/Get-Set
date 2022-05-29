@@ -8,4 +8,4 @@ param ($force)
 # /silent - Install silently
 $params = "/DIR=\`"C:\Programs\$name\`" /MERGETASKS=!runcode,addcontextmenufiles,addcontextmenufolders /silent"
 
-winget_install_v2 $PSCommandPath "Microsoft.VisualStudioCode" -params $params -force $force
+winget_install $PSCommandPath "Microsoft.VisualStudioCode" -params $params -force $force

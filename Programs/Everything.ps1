@@ -1,7 +1,7 @@
 param ($force)
 . "$((get-item $PSScriptRoot).parent.FullName)\lib\load.ps1"
 
-winget_install_v2 $PSCommandPath "voidtools.Everything" -force $force
+winget_install $PSCommandPath "voidtools.Everything" -force $force
 delete_shortcut $PSCommandPath
 
 # Everything does not start automatically after installation so it is safe to restore config after installation
