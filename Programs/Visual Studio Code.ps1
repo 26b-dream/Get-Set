@@ -6,6 +6,6 @@ param ($force)
 #   addcontextmenufiles - Add context menu entries to files
 #   addcontextmenufolders - Add context menu entries to folders
 # /silent - Install silently
-$params = "/DIR=\`"C:\Programs\$name\`" /MERGETASKS=!runcode,addcontextmenufiles,addcontextmenufolders /silent"
+$params = "/DIR=\`"$(install_path $PSCommandPath)`" /MERGETASKS=!runcode,addcontextmenufiles,addcontextmenufolders /silent"
 
 winget_install $PSCommandPath "Microsoft.VisualStudioCode" -params $params -force $force
