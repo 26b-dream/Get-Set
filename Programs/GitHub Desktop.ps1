@@ -4,4 +4,4 @@ param ($force)
 . "$((get-item $PSScriptRoot).parent.FullName)\lib\load.ps1"
 
 winget_install "GitHub.GitHubDesktop" $PSCommandPath -force $force
-delete_shortcut "GitHub Desktop"
+delete_shortcut $PSCommandPath
