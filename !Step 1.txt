@@ -1,0 +1,12 @@
+# ENable running powershell scripts
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted -Force
+
+# Update Windows Store Apps (INstalls Winget)
+
+# Install Chocolatey
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+
+# Accept Winget terms
+winget install --accept-source-agreements
+
+# ! Confirm
