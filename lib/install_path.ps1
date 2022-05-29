@@ -1,4 +1,4 @@
-function install_dir($file) {
+function install_path($file) {
     $name = (get-item $file).BaseName
     $type = (get-item $file).Directory.BaseName
     

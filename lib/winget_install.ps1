@@ -15,7 +15,7 @@ function winget_install($file, [string]$package, [string]$params, [string]$force
     # Add the parameter to change installation directory unless the flag is set
     if (!$skip_location){
         $params_array += "--location"
-        $params_array += install_dir $file
+        $params_array += install_path $file
     }
 
     # If no package name was given create it automatically
