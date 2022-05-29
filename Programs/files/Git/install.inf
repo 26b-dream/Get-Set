@@ -1,0 +1,11 @@
+[Setup]
+; Set install location
+Dir=C:\Programs\Git
+
+; !ext\shellhere - Disable shell right click integration
+; !ext\guihere - Disable GUI right click integration
+; Other options - Default values
+Components=!ext\shellhere,!ext\guihere,ext,ext,gitlfs,assoc,assoc_sh
+
+; Use Visual Studio Code as the default editor instead of Vim
+EditorOption=VisualStudioCode
