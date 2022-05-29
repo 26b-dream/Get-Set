@@ -5,4 +5,4 @@ winget_install $PSCommandPath "voidtools.Everything" -force $force
 delete_shortcut $PSCommandPath
 
 # Everything does not start automatically after installation so it is safe to restore config after installation
-Copy-Item files\Everything\Everything.ini C:\Programs\$name\Everything.ini
+Copy-Item "files\Everything\Everything.ini" "$(install_path $PSCommandPath)\Everything.ini"
