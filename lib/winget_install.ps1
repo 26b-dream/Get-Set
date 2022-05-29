@@ -1,6 +1,8 @@
 function winget_install($file, [string]$package, [string]$params, [string]$force, [bool]$skip_location) {
     $name = (get-item $file).BaseName
 
+    Write-Host "Installing: $name" -ForegroundColor Green
+
     # Create ampty array to store values
     $params_array = @()
 
@@ -26,9 +28,17 @@ function winget_install($file, [string]$package, [string]$params, [string]$force
     # Install the package if it is not already installed or is set to force install 
     if ( !$? -or $force) {
         winget install -e --id $package @params_array
-        Write-Host "$name installed" -ForegroundColor Green
+
+        # Check if installation failed
+        if ( !$?) {
+            Write-Host "`t$name install failed" -ForegroundColor Red
+        }
+        # Check if installation was successful
+        else {
+            Write-Host "`t$name installed" -ForegroundColor Green
+        }
     }
     else {
-        Write-Host "$name already installed" -ForegroundColor Green
+        Write-Host "`t$name already installed" -ForegroundColor Green
     }
 }
