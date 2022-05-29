@@ -13,7 +13,4 @@ param ($force)
     
 # ! Installs into wrong location
 winget_install $PSCommandPath "Logitech.GHUB" -force $force
-
-
 delete_shortcut $PSCommandPath
-
