@@ -1,7 +1,7 @@
-function delete_shortcut([string]$shortcut_name) {
+function delete_shortcut([string]$string_or_path) {
     # Convert path to string but leave strings untouched
-    if (Test-Path -Path $shortcut_name) {
-    $shortcut_name = (get-item $string_or_path)
+    if (Test-Path -Path $string_or_path) {
+        $shortcut_name = (get-item $string_or_path).BaseName
     }
     else{
         $shortcut_name = $string_or_path
