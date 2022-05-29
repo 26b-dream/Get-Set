@@ -10,8 +10,8 @@ function download([string]$url, [string]$path) {
     
     # Download file if required
     if ( !(Test-Path -Path $path) ) {
-        Write-Host "`tDownloding: $url" -ForegroundColor Green
         Invoke-WebRequest -Uri $url -OutFile $path
+        Write-Host "`Downloaded: $url" -ForegroundColor Green
     }
     else {
         Write-Host "Previously Downloaded: $url" -ForegroundColor Green
