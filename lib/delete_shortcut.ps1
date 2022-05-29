@@ -26,15 +26,15 @@ function delete_shortcut([string]$shortcut_name) {
     # Attempt to delete both possible shortcut locations
     if (Test-Path -Path $public_path) {
         Remove-Item -Path $public_path -Force
-        Write-Host "Shortcut deleted" -ForegroundColor Green
+        Write-Host "Shortcut deleted $public_path" -ForegroundColor Green
     }
     elseif (Test-Path -Path $user_path) {
         Remove-Item -Path $user_path -Force
-        Write-Host "Shortcut deleted" -ForegroundColor Green
+        Write-Host "Shortcut deleted: $user_path" -ForegroundColor Green
     }
     # If file never existed throw an error
     else {
-        Write-Host "Error: Unable to delete shortcut, file not found" -ForegroundColor Red
+        Write-Host "Unable to Delete Shortcut:`n`t$public_path`n`t$user_path" -ForegroundColor Red
     }
 
 }

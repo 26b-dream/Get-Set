@@ -1,8 +1,6 @@
 function choco_install($file, [string]$package, [string]$params, [string]$force) {
     $name = (get-item $file).BaseName
 
-    Write-Host "Installing: $name" -ForegroundColor Green
-
     # Create ampty array to store values
     $params_array = @()
 
@@ -26,15 +24,15 @@ function choco_install($file, [string]$package, [string]$params, [string]$force)
         
         # Check if installation failed
         if ( !$?) {
-            Write-Host "`t$name install failed" -ForegroundColor Red
+            Write-Host "Failed to Install: $name" -ForegroundColor Red
         }
         # Check if installation was successful
         else {
-            Write-Host "`t$name installed" -ForegroundColor Green
+            Write-Host "Installed: $name" -ForegroundColor Green
         }
     }
     else {
-        Write-Host "`t$name already installed" -ForegroundColor Green
+        Write-Host "Already Installed: $name" -ForegroundColor Green
     }
 }
     

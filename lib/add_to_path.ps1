@@ -4,8 +4,10 @@ function add_to_path([string]$file) {
 
     # Creates a special folder in the user's profile named Path if it does not exist
     # It is roughly equivelent to /usr/local/bin on Linux
-    New-Item -ItemType Directory -Path $path_directory
-    
+    if ( !(Test-Path -Path $path_directory) ) {
+        New-Item -ItemType Directory -Path $path_directory
+    }
+
     # If Path is not in system path add it
     if (!($env:Path -like "*$path_directory*")) {
         [Environment]::SetEnvironmentVariable("Path", $env:Path + ";$env:USERPROFILE\Path",  [System.EnvironmentVariableTarget]::Machine)            

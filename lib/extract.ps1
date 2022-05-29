@@ -1,6 +1,4 @@
 function extract([string]$zip_path, [string]$extract_path) {
-    Write-Host "Extracting: $zip_path" -ForegroundColor Green
-
     $parent_folder = Split-Path $extract_path
 
     # Create Path directory if required
