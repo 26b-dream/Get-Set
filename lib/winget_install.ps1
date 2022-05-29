@@ -1,6 +1,5 @@
 function winget_install($file, [string]$package, [string]$params, [string]$force, [bool]$skip_location) {
     $name = (get-item $file).BaseName
-    $type = (get-item $file).Directory.BaseName
 
     # Create ampty array to store values
     $params_array = @()
@@ -14,15 +13,13 @@ function winget_install($file, [string]$package, [string]$params, [string]$force
     # Add the parameter to change installation directory unless the flag is set
     if (!$skip_location){
         $params_array += "--location"
-        $params_array += "C:\$type\$name"
+        $params_array += install_dir $file
     }
 
     # If no package name was given create it automatically
     if (!$package){
-        $package = $name.$name
+        $package = "$name.$name"
     }
-
-    Write-Host "winget install -e --id $package" @params_array
 
     # Check if the package is already installed
     winget list -e --id $package | Out-Null
