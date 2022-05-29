@@ -12,6 +12,8 @@ $extracted_path="$download_folder/driver_madiface_win_$version"
 
 download $url $zip_path
 extract $zip_path $extracted_path
+
+# TODO: Detection of previous installations
 . "$extracted_path/rmeinstaller.exe" /silent
 
 Write-Host "Activate devices in madiface" -ForegroundColor DarkYellow
