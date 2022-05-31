@@ -10,11 +10,16 @@ function add_to_path([string]$file) {
 
     # If Path is not in system path add it
     if (!($env:Path -like "*$path_directory*")) {
-        [Environment]::SetEnvironmentVariable("Path", $env:Path + ";$env:USERPROFILE\Path",  [System.EnvironmentVariableTarget]::Machine)            
+        [Environment]::SetEnvironmentVariable("Path", $env:Path + ";$env:USERPROFILE\Path", [System.EnvironmentVariableTarget]::Machine)            
     }
     
-    # Symlink file into path
     $link_path = "$path_directory\$((get-item $file).BaseName)$((get-item $file).Extension)"
-    Remove-Item $link_path
+
+    # Remove old file if it exists
+    if ( (Test-Path -Path $link_path)) {
+        Remove-Item $link_path
+    }
+
+    # Symlink file
     New-Item -ItemType SymbolicLink -Path $link_path -Target "$file"
 }
