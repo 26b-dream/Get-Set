@@ -2,7 +2,6 @@
 param ($force)
 . "$((get-item $PSScriptRoot).parent.FullName)\lib\load.ps1"
 
-$type = "Programs"
 $name = "ffmpeg"
 $package = "$name"
 $install_path = (install_path $PSCommandPath)
