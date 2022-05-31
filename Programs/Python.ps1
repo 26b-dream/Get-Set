@@ -10,3 +10,5 @@ param ($force)
 #   /quiet - Silent install
 $params = "TargetDir=C:\Programs\Python PrependPath=1 /quiet "
 winget_install $PSCommandPath "Python.Python.3" -params $params -force $force
+
+Remove-Item "C:\Users\YBR\AppData\Local\Microsoft\WindowsApps\python.exe"
